@@ -1,0 +1,43 @@
+================================================================================
+  HOW TO START THIS APPLICATION            (please read, it takes 20 seconds)
+================================================================================
+
+STEP 1   Extract this ZIP before doing anything else.
+         Right-click the ZIP file  ->  Extract All...  ->  Documents or Desktop.
+
+         Do NOT work inside the ZIP. Windows shows a ZIP as if it were a
+         folder, but it is not one. Nothing you save inside it is kept, and
+         files do not load properly.
+
+STEP 2   Open the extracted EOSB_System folder.
+
+STEP 3   Double-click:   START HERE.bat
+
+         A small black window opens. Leave it open - that IS the application.
+         Your browser opens by itself.
+
+--------------------------------------------------------------------------------
+HOW TO KNOW IT IS WORKING
+--------------------------------------------------------------------------------
+  The browser address bar must begin with:     http://127.0.0.1
+  If it begins with                            file:///
+  then the application is NOT running - go back to STEP 1.
+
+  Do not double-click index.html. That is only the screen, not the program.
+
+--------------------------------------------------------------------------------
+FIRST TIME ON THIS COMPUTER
+--------------------------------------------------------------------------------
+  If you are told the runtime was not found, run this once, with internet:
+
+        tools\SETUP_RUNTIME.bat
+
+  After that the folder runs anywhere with nothing installed.
+
+--------------------------------------------------------------------------------
+IF ANYTHING GOES WRONG
+--------------------------------------------------------------------------------
+  Double-click   DIAGNOSE.bat
+
+  It writes diagnostic_report.txt in this folder saying exactly what failed.
+================================================================================

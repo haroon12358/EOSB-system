@@ -1,0 +1,17 @@
+{
+  "organisation_name": "Corbild Investments Establishment",
+  "currency": "SAR",
+  "first_period_days": 1825,
+  "days_per_year": 365,
+  "first_period_factor": 0.5,
+  "later_period_factor": 1.0,
+  "rounding_decimals": 1,
+  "inclusive_service_days": true,
+  "apply_resignation_scale": true,
+  "year_end_month": 12,
+  "year_end_day": 31,
+  "use_online_date": true,
+  "online_date_timeout": 2.0,
+  "preferred_port": 8731,
+  "open_browser": true
+}

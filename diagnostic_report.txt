@@ -1,0 +1,61 @@
+====================================================================
+ EOSB MANAGEMENT SYSTEM - DIAGNOSTIC REPORT
+ 09 August 2026  17:57:31
+====================================================================
+
+ENVIRONMENT
+  Python version : 3.14.3 (main, Feb 15 2026, 20:24:23) [Clang 14.0.0 (clang-1400.0.29.202)]
+  Python path    : /usr/local/opt/python@3.14/bin/python3.14
+  Platform       : Darwin 21.6.0
+  Script folder  : /Users/apple/Desktop/EOSB_System/app
+  App folder     : /Users/apple/Desktop/EOSB_System
+
+REQUIRED MODULES
+  sqlite3          OK
+  http.server      OK
+  json             OK
+  zipfile          OK
+  webbrowser       OK
+  urllib.request   OK
+
+FOLDERS
+  app            found   /Users/apple/Desktop/EOSB_System/app
+  app/core       found   /Users/apple/Desktop/EOSB_System/app/core
+  app/web        found   /Users/apple/Desktop/EOSB_System/app/web
+  app/reports    found   /Users/apple/Desktop/EOSB_System/app/reports
+  data           found   /Users/apple/Desktop/EOSB_System/data
+  config         found   /Users/apple/Desktop/EOSB_System/config
+
+KEY FILES
+  app/main.py            found
+  app/web/index.html     found
+  app/web/app.js         found
+  app/web/app.css        found
+
+CAN THIS FOLDER BE WRITTEN TO?
+  YES - the application can save your data here.
+
+DATABASE
+  Location : /Users/apple/Desktop/EOSB_System/data/eosb.db
+  exists          True
+  size            49152
+  writable        True
+  integrity       ok
+  employees       5
+  salary_history  5
+  unpaid_leave    0
+  benefits_paid   0
+
+CALCULATION CHECK (against the original workbook)
+  2023 closing provision       105.2   expected      105.2   MATCH
+  2024 closing provision       506.3   expected      506.3   MATCH
+  2025 closing provision      3493.8   expected     3493.8   MATCH
+
+LOCAL SERVER
+  Started on port 8731 and answered correctly.
+  Employees visible through the server: 5
+  Interface page: HTTP 200, 6196 bytes
+
+====================================================================
+ RESULT: EVERYTHING PASSED - the application should work.
+====================================================================

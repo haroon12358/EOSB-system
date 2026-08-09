@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>End of Service Benefits Management System</title>
+<style>
+/* Critical fallback styling, inline so it works even if nothing else loads. */
+body{margin:0;font:14px/1.5 "Segoe UI",Roboto,Arial,sans-serif;background:#f4f6fa;color:#16202e}
+#guard{display:none}
+.g-wrap{max-width:760px;margin:0 auto;padding:48px 28px}
+.g-card{background:#fff;border:1px solid #dfe4ec;border-radius:10px;
+  box-shadow:0 4px 20px rgba(18,35,63,.08);overflow:hidden}
+.g-head{background:#12233f;color:#fff;padding:24px 30px}
+.g-head h1{margin:0;font-size:20px;font-weight:600}
+.g-head p{margin:6px 0 0;color:#9fb2cc;font-size:13.5px}
+.g-body{padding:28px 30px}
+.g-body h2{margin:0 0 6px;font-size:16px;color:#12233f}
+.g-body p{margin:0 0 18px;color:#4a5768;line-height:1.65}
+.g-step{display:flex;gap:14px;margin-bottom:18px;align-items:flex-start}
+.g-num{flex:0 0 26px;height:26px;border-radius:50%;background:#2f6fb5;color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px}
+.g-step div{line-height:1.6}
+.g-step b{color:#12233f}
+.g-note{background:#fdf3e2;border:1px solid #f2e0bd;border-radius:7px;
+  padding:14px 16px;color:#6f4400;font-size:13px;line-height:1.65;margin-top:6px}
+.g-path{background:#f4f6fa;border:1px solid #dfe4ec;border-radius:6px;padding:10px 12px;
+  font-family:Consolas,monospace;font-size:12px;color:#4a5768;word-break:break-all;margin-top:10px}
+</style>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<!-- If this page was opened by double-clicking the file, the application is
+     not running and nothing below will work. Say so plainly. -->
+<div id="guard">
+  <div class="g-wrap"><div class="g-card">
+    <div class="g-head">
+      <h1>The application is not running yet</h1>
+      <p>You opened the interface file directly. It needs the application behind it.</p>
+    </div>
+    <div class="g-body">
+      <h2>Here is how to start it properly</h2>
+      <p>This page is only the screen. The part that stores your data and does the
+         calculations has to be started first, by the launcher.</p>
+
+      <div class="g-step"><div class="g-num">1</div><div>
+        <b>Extract the ZIP file first.</b><br>
+        Right-click <b>EOSB_System.zip</b> and choose <b>Extract All…</b>, then pick
+        <b>Documents</b> or <b>Desktop</b>. Do not open the ZIP by double-clicking it
+        and work inside — Windows only pretends that is a folder, and nothing you
+        save there is kept.
+      </div></div>
+
+      <div class="g-step"><div class="g-num">2</div><div>
+        <b>Open the extracted <span style="font-family:Consolas,monospace">EOSB_System</span> folder.</b>
+      </div></div>
+
+      <div class="g-step"><div class="g-num">3</div><div>
+        <b>Double-click <span style="font-family:Consolas,monospace">START HERE.bat</span></b>
+        (or <span style="font-family:Consolas,monospace">EOSB.bat</span>).<br>
+        A small black window opens and stays open — leave it alone. Your browser
+        opens the application by itself, at an address starting with
+        <span style="font-family:Consolas,monospace">http://127.0.0.1</span>
+      </div></div>
+
+      <div class="g-note">
+        <b>How to tell you are in the right place:</b> the address bar must start with
+        <b>http://127.0.0.1</b> — not with <b>file:///</b>. If it starts with
+        <b>file:///</b>, the application is not running.
+        <div class="g-path" id="guardPath"></div>
+      </div>
+
+      <p style="margin-top:22px">If the launcher opens and closes immediately, or you
+         see an error, double-click <b>DIAGNOSE.bat</b> in the same folder. It writes
+         <b>diagnostic_report.txt</b> explaining exactly what went wrong.</p>
+    </div>
+  </div></div>
+</div>
+
+<div class="shell" id="appShell">
+  <aside class="sidebar">
+    <div class="brand">
+      <h1 id="orgName">Loading</h1>
+      <span>EOSB Management</span>
+    </div>
+    <nav class="nav" id="nav">
+      <div class="group">Overview</div>
+      <a data-view="dashboard"><i>&#9632;</i> Dashboard</a>
+      <div class="group">Records</div>
+      <a data-view="employees"><i>&#9679;</i> Employees</a>
+      <a data-view="salaries"><i>&#9650;</i> Salary History</a>
+      <a data-view="leave"><i>&#9671;</i> Unpaid Leave</a>
+      <a data-view="payments"><i>&#9660;</i> Benefits Paid</a>
+      <div class="group">Accounting</div>
+      <a data-view="schedule"><i>&#9636;</i> Provision Schedule</a>
+      <a data-view="reports"><i>&#9638;</i> Reports</a>
+      <div class="group">System</div>
+      <a data-view="backup"><i>&#9635;</i> Backup &amp; Restore</a>
+      <a data-view="settings"><i>&#9881;</i> Settings</a>
+      <a data-view="diagnostics"><i>&#9873;</i> Diagnostics</a>
+    </nav>
+    <div class="sidefoot">
+      <b id="footYear">&nbsp;</b><br>
+      <span id="footDate">&nbsp;</span><br>
+      <span id="footVersion">&nbsp;</span>
+    </div>
+  </aside>
+  <div class="main">
+    <header class="topbar">
+      <div>
+        <h2 id="pageTitle">Dashboard</h2>
+        <div class="sub" id="pageSub"></div>
+      </div>
+      <div class="spacer"></div>
+      <span class="saveflag" id="saveFlag">Saved</span>
+      <button class="btn sm" id="refreshBtn">Refresh</button>
+      <button class="btn sm" id="quitBtn">Quit</button>
+    </header>
+    <main class="content" id="view"><div class="loading">Loading&hellip;</div></main>
+  </div>
+</div>
+<div id="modalHost"></div>
+<div id="toasts"></div>
+
+<script>
+/* Runs before anything else. If this page was not served by the application,
+   show the instructions instead of an interface that can never work. */
+(function () {
+  if (location.protocol === "http:" || location.protocol === "https:") return;
+  var guard = document.getElementById("guard");
+  var shell = document.getElementById("appShell");
+  guard.style.display = "block";
+  shell.style.display = "none";
+  document.getElementById("guardPath").textContent =
+    "You are currently at:  " + location.href;
+  document.title = "Start the application first";
+})();
+</script>
+<script src="app.js"></script>
+</body>
+</html>
